@@ -70,9 +70,23 @@ namespace MySwoleMate.BLL
         {
             //store the displayed height
             string heightDisplay = "";
-            //perform the calculations to separate feet and height (hint: this is a great 
-            //time to use the % (modulus) operator
+            //perform the calculations to separate feet and inches 
+            int feet = height % 12;
+            int inches =  Convert.ToInt32(Decimal.Round((height / 12) - feet));
+            heightDisplay = $"{feet}ft. {inches}in.";
+
             return heightDisplay;
+        }
+
+        //Takes in a string value and returns a string value with hyphens in between the area code and phone number.
+        private string PhoneDisplay(string phone) 
+        {
+            //Store the displayed phone number
+            string phoneDisplay = "";
+            //Format phone number to be displayed with hyphens
+            phoneDisplay = String.Format("{0:###-###-####}", phone);
+
+            return phoneDisplay;
         }
     }
 }
